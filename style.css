@@ -55,6 +55,12 @@ body {
     min-height: 200px;
 }
 
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .card-actions {
     display: flex;
     flex-direction: column;
