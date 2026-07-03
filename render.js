@@ -26,15 +26,15 @@ function renderCard(card, cardContainer, columnId) {
                         <button class="edit-btn">✏️</button>
                         <button class="delete-btn">🗑️</button>
                     </div>`;
-    cardContainer.appendChild(cardElement);
     const editBtn = cardElement.querySelector(".edit-btn");
     editBtn.addEventListener("click", () => {
         openEditModal(card.id);
-    })
+    });
     const deleteBtn = cardElement.querySelector(".delete-btn");
     deleteBtn.addEventListener("click", () => {
         deleteCard(card.id);
-    })
+    });
+    cardContainer.appendChild(cardElement);
 }
 
 function renderColumn(column) {
@@ -47,7 +47,6 @@ function renderColumn(column) {
             </div>
             <div class="card-container"></div>
             <button class="add-card-btn">+ Add Card</button>`;
-    boardElement.appendChild(columnElement);
 
     const cardContainer = columnElement.querySelector(".card-container");
     cardContainer.addEventListener("dragover", e => {
@@ -62,7 +61,7 @@ function renderColumn(column) {
         const targetIndex = cards.indexOf(placeholder);
         moveCard(sourceColumnId, column.id, draggedCardId, targetIndex);
         placeholder.remove();
-    })
+    });
     column.cards.forEach(card => {
         renderCard(card, cardContainer, column.id);
     });
@@ -73,12 +72,14 @@ function renderColumn(column) {
         document.getElementById("modal-heading").textContent = "Add Card";
         document.getElementById("create-btn").textContent = "Create";
         document.getElementById("add-card-modal").classList.remove("hidden");
-    })
+    });
 
     const deleteColumnBtn = columnElement.querySelector(".delete-column-btn");
     deleteColumnBtn.addEventListener("click", () => {
         deleteColumn(column.id);
-    })
+    });
+
+    boardElement.appendChild(columnElement);
 }
 
 function renderBoard() {
