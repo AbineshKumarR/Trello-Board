@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>TRELLO BOARD</h1>
+    <div class="header-container">
+        <h1>TRELLO BOARD</h1>
+        <button id="add-column-btn">+ Add Column</button>
+    </div>
     <div id="board">
         <!-- <div class="column">
             <div class="column-header">
@@ -69,10 +72,20 @@
             </div>
         </div>
     </div>
+    <div class="modal hidden" id="add-column-modal">
+        <div class="modal-content">
+            <h2>Add Column</h2>
+            <input type="text" id="column-title" placeholder="Column Name">
+            <div class="modal-buttons">
+                <button id="cancel-column-btn">Cancel</button>
+                <button id="create-column-btn">Create</button>
+            </div>
+        </div>
+    </div>
     <script src="board.js" defer></script>
     <script src="render.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="drag.js" defer></script>
+    <script src="drag.js"></script>
 </body>
 
 </html>

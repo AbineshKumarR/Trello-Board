@@ -13,6 +13,13 @@ body {
     align-items: center;
 }
 
+.header-container {
+    width: 95%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
 #board {
     width: 95%;
     margin: auto;
@@ -27,18 +34,53 @@ body {
 }
 
 .column {
-    width: 300px;
+    min-width: 300px;
     background: #f4f5f7;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
 }
 
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.column-header button {
+    background-color: tomato;
+}
+
 .card-container {
     min-height: 200px;
 }
 
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-actions button, .column-header button {
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    transition: all 1s ease;
+}
+
+.card-actions button {
+    background-color: greenyellow;
+}
+
+.card-actions button:hover, .column-header button:hover {
+    transform: scale(1.5);
+}
+
 .card {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -46,6 +88,11 @@ body {
     cursor: grab;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: 0.2s;
+}
+
+.card p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .card:hover {
@@ -57,9 +104,8 @@ body {
     cursor: grabbing;
 }
 
-.add-card-btn {
-    width: 100%;
-    margin-top: 10px;
+
+.add-card-btn, #add-column-btn {
     padding: 10px;
     cursor: pointer;
     border: none;
@@ -67,8 +113,13 @@ body {
     font-size: 15px;
     background-color: #dfe1e6;
 }
+.add-card-btn {
+    width: 100%;
+    margin-top: 10px;
+    
+}
 
-.add-card-btn:hover {
+.add-card-btn:hover, #add-column-btn:hover {
     background-color: #cfd2d8;
 }
 
@@ -104,4 +155,15 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+
+.placeholder {
+    height: 80px;
+    border: 2px dashed #888;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.dragging {
+    opacity: 0.4;
 }
